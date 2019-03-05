@@ -34,4 +34,11 @@ class Api::CarsController < ApplicationController
     @car.save
     render 'show.json.jbuilder'
   end
+
+  def destroy
+    car_id = params[:id]
+    @car = Car.find_by(id: car_id)
+    @car.destroy
+    render 'show.json.jbuilder'
+  end
 end
